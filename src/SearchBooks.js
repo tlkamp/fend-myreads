@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import escapeRegExp from 'escape-string-regexp';
+import Book from './Book';
 
 class SearchBooks extends Component {
 
@@ -40,7 +41,9 @@ class SearchBooks extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {booksToShow.map((book) => (
-                            <li key={book.id} className="book"></li>
+                            <li key={book.id} className="book">
+                                <Book book={book}/>
+                            </li>
                         ))}
                     </ol>
                 </div>
