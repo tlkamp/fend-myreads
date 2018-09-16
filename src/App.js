@@ -13,13 +13,13 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksApi.getAll().then((books) => {
-      this.setState({books})
+      this.setState({ books })
     });
   }
 
   moveToShelf(book, shelf) {
     BooksApi.update(book, shelf).then(BooksApi.getAll).then((books) => {
-      this.setState({books})
+      this.setState({ books })
     });
   }
 
@@ -27,8 +27,8 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Route path="/search" render={() => (
-          <SearchBooks handleUpdate={this.moveToShelf.bind(this)}/>
-        )}/>
+          <SearchBooks handleUpdate={this.moveToShelf.bind(this)} />
+        )} />
 
         <Route path="/" exact render={() => (
           <div className="list-books">
@@ -38,7 +38,7 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <div>
                 {this.state.shelves.map((shelf) => (
-                  <BookShelf key={shelf} handleUpdate={this.moveToShelf.bind(this)} shelfTitle={shelf} books={this.state.books}/>
+                  <BookShelf key={shelf} handleUpdate={this.moveToShelf.bind(this)} shelfTitle={shelf} books={this.state.books} />
                 ))}
               </div>
             </div>
@@ -46,7 +46,7 @@ class BooksApp extends React.Component {
               <Link to="/search">Add a book</Link>
             </div>
           </div>
-        )}/>
+        )} />
       </div>
     )
   }
