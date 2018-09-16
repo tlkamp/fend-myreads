@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import * as BooksApi from './BooksAPI';
 import BooksGrid from './BooksGrid';
 
@@ -12,10 +12,10 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     if (query) {
-      this.setState({ query: query.trim() });
+      this.setState({query: query.trim()});
       BooksApi.search(query.trim()).then((books) => {
         const newResults = books.length > 0 ? books : [];
-        this.setState({ books: newResults });
+        this.setState({books: newResults});
       });
     } else {
       this.clearQuery();
@@ -23,11 +23,11 @@ class SearchBooks extends Component {
   }
 
   clearQuery = () => {
-    this.setState({ query: '', books: [] })
+    this.setState({query: '', books: []});
   }
 
   render() {
-    const { query, books } = this.state;
+    const {query, books} = this.state;
     return (
       <div className="search-books">
         <div className="search-books-bar">

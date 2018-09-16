@@ -1,7 +1,7 @@
-import React from 'react'
-import { Route, Link } from 'react-router-dom';
-import * as BooksApi from './BooksAPI'
-import './App.css'
+import React from 'react';
+import {Route, Link} from 'react-router-dom';
+import * as BooksApi from './BooksAPI';
+import './App.css';
 import SearchBooks from './SearchBooks';
 import BookShelf from './BookShelf';
 
@@ -13,13 +13,13 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksApi.getAll().then((books) => {
-      this.setState({ books })
+      this.setState({books});
     });
   }
 
   moveToShelf(book, shelf) {
     BooksApi.update(book, shelf).then(BooksApi.getAll).then((books) => {
-      this.setState({ books })
+      this.setState({books});
     });
   }
 
@@ -48,8 +48,8 @@ class BooksApp extends React.Component {
           </div>
         )} />
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;
