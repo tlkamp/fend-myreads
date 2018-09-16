@@ -17,14 +17,10 @@ class BooksApp extends React.Component {
     });
   }
 
-  moveToShelf(bookId, shelf) {
-    this.setState((state) => ({
-      books: state.books.map((book) => {
-        book.shelf = book.id === bookId ? shelf : book.shelf;
-      })
-    }));
-
-    BooksApi.update(bookId, shelf);
+  moveToShelf(book, shelf) {
+    BooksApi.update(book, shelf).then(BooksApi.getAll).then((books) => {
+      this.setState({books})
+    });
   }
 
   render() {
@@ -40,7 +36,7 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <div>
                 {this.state.shelves.map((shelf) => (
-                  <BookShelf key={shelf} shelfTitle={shelf} books={this.state.books}/>
+                  <BookShelf key={shelf} handleUpdate={this.moveToShelf.bind(this)} shelfTitle={shelf} books={this.state.books}/>
                 ))}
               </div>
             </div>
