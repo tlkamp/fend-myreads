@@ -11,19 +11,20 @@ class SearchBooks extends Component {
     }
 
     updateQuery = (query) => {
-        this.setState({
-            query: query.trim()
-        });
-    }
-
-    clearQuery = (query) => {
-        this.setState({query: '', books: []})
-    }
-
-    componentDidUpdate() {
-        if(this.state.query) {
-            BooksApi.search(this.state.query).then((results) => this.setState({books: results}));
+        if (query) {
+            this.setState({query: query.trim()})
+            BooksApi.search(query.trim()).then((books) => {
+                // Calling .map on an array with no items causes the function to be 'undefined'
+                const newResults = books.length > 1 ? books : [];
+                this.setState({books: newResults})
+            })
+        } else {
+            this.clearQuery();
         }
+    }
+
+    clearQuery = () => {
+        this.setState({query: '', books: []})
     }
 
     render() {
