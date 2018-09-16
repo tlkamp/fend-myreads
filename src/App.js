@@ -26,7 +26,9 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route path="/search" component={SearchBooks}/>
+        <Route path="/search" render={() => (
+          <SearchBooks handleUpdate={this.moveToShelf.bind(this)}/>
+        )}/>
 
         <Route path="/" exact render={() => (
           <div className="list-books">

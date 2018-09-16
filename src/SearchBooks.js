@@ -39,7 +39,7 @@ class SearchBooks extends Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <BooksGrid books={books}/>
+                    <BooksGrid handleUpdate={this.props.handleUpdate} books={books}/>
                 </div>
             </div>
         );
