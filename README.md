@@ -13,7 +13,7 @@ A static, uninteractive site made [`React`](https://reactjs.org/)ive.
   * A browser should open and take you to the site. If it doesn't you can navigate to [`localhost:3000`](http://localhost:3000) (or click it here!
 
 ### A note about searching
-The search terms are limited to the terms listed in [`search_terms.md`](SEARCH_TERMS.md)
+The search terms are limited to the terms listed in [`search_terms.md`](SEARCH_TERMS.md).
 
 ## Stopping the App
 To stop the server, hit `control + c` in the terminal where it is running.
