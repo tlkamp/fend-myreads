@@ -14,12 +14,33 @@ class SearchBooks extends Component {
     if (query) {
       this.setState({query});
       BooksApi.search(query.trim()).then((books) => {
-        const newResults = books.length > 0 ? books : [];
-        this.setState({books: newResults});
+        if (books.length > 0) {
+          books = this.setShelves(books, this.props.shelfBooks);
+        } else {
+          books = [];
+        }
+        this.setState({books});
       });
     } else {
       this.clearQuery();
     }
+  }
+
+  /*
+    Normally this would not be necessary because
+    the API would update the books on the back end
+    with user data.
+  */
+  setShelves = (stateBooks, propsBooks) => {
+    for (let stateBook of stateBooks) {
+      for (let propsBook of propsBooks) {
+        if (stateBook.id === propsBook.id) {
+          stateBook.shelf = propsBook.shelf;
+          continue;
+        }
+      }
+    }
+    return stateBooks;
   }
 
   clearQuery = () => {

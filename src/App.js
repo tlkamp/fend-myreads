@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Route path="/search" render={() => (
-          <SearchBooks handleUpdate={this.moveToShelf.bind(this)} />
+          <SearchBooks shelfBooks={this.state.books} handleUpdate={this.moveToShelf.bind(this)} />
         )} />
 
         <Route path="/" exact render={() => (
