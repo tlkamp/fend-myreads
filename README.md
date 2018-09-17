@@ -9,7 +9,7 @@ A static, uninteractive site made [`React`](https://reactjs.org/)ive.
 ## Starting the App
 1. Ensure Node and NPM are installed.
 2. Clone or download this repository - note the location where the files are stored.
-3. Open a terminal in the location where your files are stored and run `npm start` to run the server.
+3. Open a terminal in the location where your files are stored and run `npm install && npm start` to run the server.
   * A browser should open and take you to the site. If it doesn't you can navigate to [`localhost:3000`](http://localhost:3000) (or click it here!
 
 ### A note about searching
